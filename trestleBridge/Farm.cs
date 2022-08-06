@@ -11,6 +11,11 @@ namespace trestleBridge
     public class Farm
     {
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
+        public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
+        public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
+        public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
+        public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
+
 
         /*
             This method must specify the correct product interface of the
@@ -29,9 +34,33 @@ namespace trestleBridge
             }
         }
 
-        public void AddGrazingField(GrazingField field)
+        public void AddField(string name)
         {
-            GrazingFields.Add(field);
+            switch (name)
+            {
+                case "grazingfield":
+                    GrazingFields.Add(new GrazingField());
+                    Console.WriteLine("new grazing field added");
+                    break;
+                case "chickenhouse":
+                    ChickenHouses.Add(new ChickenHouse());
+                    Console.WriteLine("new chicken house added");
+                    break;
+                case "duckhouse":
+                    DuckHouses.Add(new DuckHouse());
+                    Console.WriteLine("new duck house added");
+                    break;
+                case "naturalfield":
+                    NaturalFields.Add(new NaturalField());
+                    Console.WriteLine("natural field added");
+                    break;
+                case "plowedfield":
+                    PlowedFields.Add(new PlowedField());
+                    Console.WriteLine("plowed field added");
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override string ToString()
