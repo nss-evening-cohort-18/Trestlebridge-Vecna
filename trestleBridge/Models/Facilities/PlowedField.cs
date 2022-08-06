@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace trestleBridge.Interfaces
+namespace trestleBridge.Models.Facilities
 {
-    public interface IResource
+    internal class PlowedField
     {
     }
 }

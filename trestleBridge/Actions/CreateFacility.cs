@@ -1,4 +1,5 @@
 ﻿using System;
+using trestleBridge.Models.Facilities;
 
 namespace trestleBridge.Actions
 {
@@ -8,7 +9,9 @@ namespace trestleBridge.Actions
         {
             Console.WriteLine ("1. Grazing field");
             Console.WriteLine ("2. Plowed field");
-            Console.WriteLine ();
+            Console.WriteLine ("3. Natural field");
+            Console.WriteLine("4. chicken house");
+            Console.WriteLine("5. duck house");
             Console.WriteLine ("Choose what you want to create");
             Console.Write ("> ");
             string input = Console.ReadLine ();
@@ -17,6 +20,8 @@ namespace trestleBridge.Actions
                 case 1:
                     farm.AddGrazingField(new GrazingField());
                     break;
+                case 2: 
+                   
                 default:
                     break;
             }
