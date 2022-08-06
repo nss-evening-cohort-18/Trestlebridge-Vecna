@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using trestleBridge.Actions;
 using trestleBridge.Interfaces;
 
 namespace trestleBridge.Models.Facilities
@@ -10,9 +11,9 @@ namespace trestleBridge.Models.Facilities
     public class GrazingField : IFacility<IGrazing>
     {
         public static string Name { get; set; } = "grazingfield";
-        private int _capacity = 50;
+        private int _capacity = 3;
         private Guid _id = Guid.NewGuid();
-
+        public int currentCap { get => _animals.Count; }
         private List<IGrazing> _animals = new List<IGrazing>();
 
         public double Capacity
@@ -23,10 +24,17 @@ namespace trestleBridge.Models.Facilities
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddResource(IGrazing animal, Farm farm)
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            if (_capacity - currentCap > 0)
+            {
+                _animals.Add(animal);
+            }
+            else
+            {
+                Console.WriteLine("**** That facililty is not large enough ***** ***Please choose another one * ***");
+                ChooseGrazingField.CollectInput(farm, animal);
+            }
         }
 
         public void AddResource(List<IGrazing> animals)

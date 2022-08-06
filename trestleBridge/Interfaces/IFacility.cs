@@ -2,6 +2,6 @@
 {
     public interface IFacility<T>
     {
-        void AddResource(T resource);
+        void AddResource(T resource, Farm f);
     }
 }

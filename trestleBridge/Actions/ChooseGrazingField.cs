@@ -10,7 +10,8 @@ namespace trestleBridge.Actions
             // Console.Clear();
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                int totalAnimals = farm.GrazingFields[i].currentCap;
+                Console.WriteLine($"{i + 1}. Grazing Field ({totalAnimals} animals)");
             }
             Console.WriteLine();
             // How can I output the type of animal chosen here?
@@ -19,7 +20,7 @@ namespace trestleBridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            farm.GrazingFields[choice].AddResource(animal);
+            farm.GrazingFields[choice -1].AddResource(animal, farm);
 
             /*
                 Couldn't get this to work. Can you?
