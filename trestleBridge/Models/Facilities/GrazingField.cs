@@ -9,6 +9,7 @@ namespace trestleBridge.Models.Facilities
 {
     public class GrazingField : IFacility<IGrazing>
     {
+        public static string Name { get; set; } = "grazingfield";
         private int _capacity = 50;
         private Guid _id = Guid.NewGuid();
 

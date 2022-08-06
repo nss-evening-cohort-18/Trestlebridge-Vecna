@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace trestleBridge.Models.Facilities
 {
-    internal class PlowedField
+    public class PlowedField
     {
+         public static string Name { get; set; } = "plowedfield";
     }
 }
