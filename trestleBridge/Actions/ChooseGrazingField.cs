@@ -1,4 +1,6 @@
 ﻿using System;
+using trestleBridge.Interfaces;
+
 namespace trestleBridge.Actions
 {
     public class ChooseGrazingField
