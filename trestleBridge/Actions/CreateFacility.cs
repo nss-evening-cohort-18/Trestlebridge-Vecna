@@ -21,10 +21,10 @@ namespace trestleBridge.Actions
                     farm.AddField(GrazingField.Name);
                     break;
                 case 2:
-                    farm.AddField(PlowedField.Name);
+                    farm.AddField(PlowedField.Names);
                     break;
                 case 3:
-                    farm.AddField(NaturalField.Name);
+                    farm.AddField(NaturalField.Names);
                     break;
                 case 4:
                     farm.AddField(ChickenHouse.Name);
