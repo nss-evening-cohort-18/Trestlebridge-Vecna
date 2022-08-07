@@ -8,5 +8,6 @@ namespace trestleBridge.Models.Animals
 {
     public class Duck
     {
+        public string Type { get; } = "duck";
     }
 }

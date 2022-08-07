@@ -13,7 +13,7 @@ namespace trestleBridge.Models.Facilities
         public static string Name { get; set; } = "duckhouse";
 
         private List<Duck> _ducks = new List<Duck>();
-        private int _capacity { get; } = 12;
+        public int _capacity { get; } = 12;
 
         public int currentCap { get => _ducks.Count; }
 
@@ -28,6 +28,30 @@ namespace trestleBridge.Models.Facilities
                 Console.WriteLine("**** That facililty is not large enough ***** ***Please choose another one * ***");
                 ChooseDuckHouse.CollectInput(farm, animal);
             }
+        }
+        public override string ToString()
+        {
+            Dictionary<string, int> animalCount = new Dictionary<string, int>();
+            StringBuilder output = new StringBuilder();
+            output.Append($"Duck House (");
+            this._ducks.ForEach(a =>
+            {
+                if (animalCount.ContainsKey(a.Type))
+                {
+                    animalCount[a.Type] += 1;
+                }
+                else
+                {
+                    animalCount[a.Type] = 1;
+                }
+            });
+            foreach (KeyValuePair<string, int> kvp in animalCount.OrderByDescending(x => x.Value))
+            {
+                output.Append($" {kvp.Value.ToString()} {kvp.Key}s, ");
+            }
+            output.Remove(output.Length - 2, 1);
+            output.Append(")");
+            return output.ToString();
         }
     }
 }

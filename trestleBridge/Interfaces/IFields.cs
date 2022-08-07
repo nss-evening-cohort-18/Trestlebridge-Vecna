@@ -9,6 +9,7 @@ namespace trestleBridge.Interfaces
     public interface IFields
     {
         int currentCap { get; }
+        int _capacity { get; }
         string Name { get; }
 
         void AddResource(ISeed seed, Farm farm);

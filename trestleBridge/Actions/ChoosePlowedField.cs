@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using trestleBridge.Interfaces;
+using trestleBridge.Models.Facilities;
 
 namespace trestleBridge.Actions
 {
@@ -11,9 +12,10 @@ namespace trestleBridge.Actions
     {
         public static void CollectInput(Farm farm, ISeed seed)
         {
-            for (int i = 0; i < farm.PlowedFields.Count; i++)
+            List<PlowedField> temp = farm.PlowedFields.Where(x => x.currentCap < x._capacity).ToList();
+            for (int i = 0; i < temp.Count; i++)
             {
-                int totalRows = farm.PlowedFields[i].currentCap;
+                int totalRows = temp[i].currentCap;
                 Console.WriteLine($"{i + 1}. Plowed field ({totalRows} number of rows)");
             }
             Console.WriteLine();
@@ -23,7 +25,7 @@ namespace trestleBridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            farm.PlowedFields[choice - 1].AddResource(seed, farm);
+            temp[choice - 1].AddResource(seed, farm);
 
         }
     }

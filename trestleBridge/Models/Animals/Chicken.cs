@@ -9,5 +9,6 @@ namespace trestleBridge.Models.Animals
 {
     public class Chicken
     {
+        public string Type { get; } = "chicken";
     }
 }
