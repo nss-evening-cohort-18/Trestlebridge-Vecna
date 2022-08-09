@@ -59,7 +59,7 @@ static void Start()
         else if (option == "5")
         {
             DisplayBanner();
-            ProcessingOptions.printOptions();
+            ProcessingOptions.printOptions(Trestlebridge);
         }
         else if (option == "6")
         {

@@ -8,7 +8,7 @@ using trestleBridge.Interfaces;
 
 namespace trestleBridge.Models.Facilities
 {
-    public class PlowedField : IFields
+    public class PlowedField : IFields, IFacility<ISeed>
     {
          public string Name { get; set; } = "plowedfield";
         public static string Names { get; set; } = "plowedfield";

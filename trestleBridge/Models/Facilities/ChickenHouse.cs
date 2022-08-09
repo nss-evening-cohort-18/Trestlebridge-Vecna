@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using trestleBridge.Actions;
+using trestleBridge.Interfaces;
 using trestleBridge.Models.Animals;
 
 namespace trestleBridge.Models.Facilities
 {
-    public class ChickenHouse
+    public class ChickenHouse : IFacility<Chicken>, IMeatProducing
     {
+        public string FieldName { get; } = "chicken house";
         public static string Name { get; set; } = "chickenhouse";
         public int currentCap { get => _chickens.Count; }
 

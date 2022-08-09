@@ -8,8 +8,9 @@ using trestleBridge.Interfaces;
 
 namespace trestleBridge.Models.Facilities
 {
-    public class GrazingField : IFacility<IGrazing>
+    public class GrazingField : IFacility<IGrazing>, IMeatProducing
     {
+        public string FieldName { get; } = "grazing field";
         public static string Name { get; set; } = "grazingfield";
         public int _capacity = 3;
         private Guid _id = Guid.NewGuid();
