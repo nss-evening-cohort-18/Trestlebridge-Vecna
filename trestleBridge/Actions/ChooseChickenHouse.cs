@@ -9,10 +9,11 @@ namespace trestleBridge.Actions
         public static void CollectInput(Farm farm, Chicken chicken)
         {
             List<ChickenHouse> temp = farm.ChickenHouses.Where(x => x.currentCap < x._capacity).ToList();
+
             for (int i = 0; i < temp.Count; i++)
             {
                 int totalAnimals = temp[i].currentCap;
-                Console.WriteLine($"{i + 1}. Chicken House ({totalAnimals} animals)");
+                Console.WriteLine($"{i + 1}. Chicken House ({totalAnimals} chickens)");
             }
             Console.WriteLine();
 

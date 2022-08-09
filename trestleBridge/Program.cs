@@ -27,7 +27,8 @@ static void Start()
         Console.WriteLine("2. Purchase Animals");
         Console.WriteLine("3. Purchase Seeds");
         Console.WriteLine("4. Display Farm Status");
-        Console.WriteLine("5. Exit");
+        Console.WriteLine("5. Processing Options");
+        Console.WriteLine("6. Exit");
         Console.WriteLine();
         Console.WriteLine("Choose a FARMS option");
         Console.Write("> ");
@@ -56,6 +57,11 @@ static void Start()
             Console.ReadLine();
         }
         else if (option == "5")
+        {
+            DisplayBanner();
+            ProcessingOptions.printOptions();
+        }
+        else if (option == "6")
         {
             Console.WriteLine("Today is a great day for farming");
             break;
