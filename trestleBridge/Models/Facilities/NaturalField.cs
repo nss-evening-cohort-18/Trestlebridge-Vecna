@@ -12,8 +12,8 @@ namespace trestleBridge.Models.Facilities
     {
         public string Name { get; set; } = "naturalfield";
         public static string Names { get; set; } = "naturalfield";
-        private List<ISeed> _seeds = new List<ISeed>();
-        public int _capacity { get; } = 2;
+        public List<ISeed> _seeds = new List<ISeed>();
+        public int _capacity { get; } = 20;
 
         public int currentCap { get => _seeds.Count; }
 
@@ -52,6 +52,22 @@ namespace trestleBridge.Models.Facilities
             output.Remove(output.Length - 2, 1);
             output.Append(")");
             return output.ToString();
+        }
+        public Dictionary<string, int> returnList()
+        {
+            Dictionary<string, int> seedCount = new Dictionary<string, int>();
+            this._seeds.ForEach(a =>
+            {
+                if (seedCount.ContainsKey(a.Name))
+                {
+                    seedCount[a.Name] += 1;
+                }
+                else
+                {
+                    seedCount[a.Name] = 1;
+                }
+            });
+            return seedCount;
         }
     }
 }
