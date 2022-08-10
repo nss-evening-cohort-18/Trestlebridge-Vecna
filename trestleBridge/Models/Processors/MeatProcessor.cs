@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace trestleBridge.Interfaces
+namespace trestleBridge.Models.NewFolder1
 {
-    public interface IPlowedSeed
+    public class MeatProcessor
     {
-        string Name { get; }
+        public static int capacity { get; } = 7;
+
+
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace trestleBridge.Models.Animals
+namespace trestleBridge.Models.Processors
 {
-    public class Duck
+    internal class SeedProcessor
     {
-        public string Type { get; } = "duck";
+        public static int capacity { get; } = 5;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using trestleBridge.Interfaces;
+using trestleBridge.Models.Facilities;
 
 namespace trestleBridge.Actions
 {
@@ -8,9 +9,10 @@ namespace trestleBridge.Actions
         public static void CollectInput(Farm farm, IGrazing animal)
         {
             // Console.Clear();
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            List<GrazingField> temp = farm.GrazingFields.Where(x => x.currentCap < x._capacity).ToList();
+            for (int i = 0; i < temp.Count; i++)
             {
-                int totalAnimals = farm.GrazingFields[i].currentCap;
+                int totalAnimals = temp[i].currentCap;
                 Console.WriteLine($"{i + 1}. Grazing Field ({totalAnimals} animals)");
             }
             Console.WriteLine();
@@ -20,7 +22,7 @@ namespace trestleBridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            farm.GrazingFields[choice -1].AddResource(animal, farm);
+            temp[choice -1].AddResource(animal, farm);
 
             /*
                 Couldn't get this to work. Can you?

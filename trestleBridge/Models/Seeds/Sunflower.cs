@@ -7,7 +7,7 @@ using trestleBridge.Interfaces;
 
 namespace trestleBridge.Models.Seeds
 {
-    public class Sunflower : INaturalSeed, IPlowedSeed, ISeed
+    public class Sunflower : ISeed
     {
         public string Name { get;} = "SunFlower";
     }

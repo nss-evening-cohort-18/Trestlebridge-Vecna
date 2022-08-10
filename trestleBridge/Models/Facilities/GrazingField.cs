@@ -8,13 +8,14 @@ using trestleBridge.Interfaces;
 
 namespace trestleBridge.Models.Facilities
 {
-    public class GrazingField : IFacility<IGrazing>
+    public class GrazingField : IFacility<IGrazing>, IMeatProducing
     {
+        public string FieldName { get; } = "grazing field";
         public static string Name { get; set; } = "grazingfield";
-        private int _capacity = 3;
+        public int _capacity = 13;
         private Guid _id = Guid.NewGuid();
         public int currentCap { get => _animals.Count; }
-        private List<IGrazing> _animals = new List<IGrazing>();
+        public List<IGrazing> _animals = new List<IGrazing>();
 
         public double Capacity
         {
@@ -44,11 +45,43 @@ namespace trestleBridge.Models.Facilities
         }
         public override string ToString()
         {
+            Dictionary<string, int> animalCount = new Dictionary<string, int>();
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Grazing field {shortId} (");
+            this._animals.ForEach(a =>
+            {
+                if (animalCount.ContainsKey(a.Type))
+                {
+                    animalCount[a.Type] += 1;
+                } else
+                {
+                    animalCount[a.Type] = 1;
+                }
+            });
+            foreach (KeyValuePair<string, int> kvp in animalCount.OrderByDescending(x => x.Value))
+            {
+                output.Append($" {kvp.Value.ToString()} {kvp.Key}s, ");
+            }
+            output.Remove(output.Length - 2, 1);
+            output.Append(")");
             return output.ToString();
+        }
+        public Dictionary<string, int> returnList()
+        {
+            Dictionary<string, int> animalCount = new Dictionary<string, int>();
+            this._animals.ForEach(a =>
+            {
+                if (animalCount.ContainsKey(a.Type))
+                {
+                    animalCount[a.Type] += 1;
+                }
+                else
+                {
+                    animalCount[a.Type] = 1;
+                }
+            });
+            return animalCount;
         }
     }
 }

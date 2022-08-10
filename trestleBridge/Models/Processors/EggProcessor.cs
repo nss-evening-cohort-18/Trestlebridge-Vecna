@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace trestleBridge.Interfaces
+namespace trestleBridge.Models.Processors
 {
-    public interface INaturalSeed
+    internal class EggProcessor
     {
-        string Name { get; }
+        public static int capacity { get; } = 15;
     }
 }

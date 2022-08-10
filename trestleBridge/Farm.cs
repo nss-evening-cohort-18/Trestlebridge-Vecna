@@ -67,7 +67,11 @@ namespace trestleBridge
         {
             StringBuilder report = new StringBuilder();
 
-            GrazingFields.ForEach(gf => report.Append(gf));
+            GrazingFields.ForEach(gf => report.Append(gf + "\n"));
+            ChickenHouses.ForEach(gf => report.Append(gf + "\n"));
+            DuckHouses.ForEach(gf => report.Append(gf + "\n"));
+            NaturalFields.ForEach(gf => report.Append(gf + "\n"));
+            PlowedFields.ForEach(gf => report.Append(gf + "\n"));
 
             return report.ToString();
         }
