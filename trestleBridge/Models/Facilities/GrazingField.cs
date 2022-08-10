@@ -12,10 +12,10 @@ namespace trestleBridge.Models.Facilities
     {
         public string FieldName { get; } = "grazing field";
         public static string Name { get; set; } = "grazingfield";
-        public int _capacity = 3;
+        public int _capacity = 13;
         private Guid _id = Guid.NewGuid();
         public int currentCap { get => _animals.Count; }
-        private List<IGrazing> _animals = new List<IGrazing>();
+        public List<IGrazing> _animals = new List<IGrazing>();
 
         public double Capacity
         {
@@ -66,6 +66,22 @@ namespace trestleBridge.Models.Facilities
             output.Remove(output.Length - 2, 1);
             output.Append(")");
             return output.ToString();
+        }
+        public Dictionary<string, int> returnList()
+        {
+            Dictionary<string, int> animalCount = new Dictionary<string, int>();
+            this._animals.ForEach(a =>
+            {
+                if (animalCount.ContainsKey(a.Type))
+                {
+                    animalCount[a.Type] += 1;
+                }
+                else
+                {
+                    animalCount[a.Type] = 1;
+                }
+            });
+            return animalCount;
         }
     }
 }

@@ -15,8 +15,8 @@ namespace trestleBridge.Models.Facilities
         public static string Name { get; set; } = "chickenhouse";
         public int currentCap { get => _chickens.Count; }
 
-        public int _capacity { get; } = 2;
-        private List<Chicken> _chickens = new List<Chicken>();
+        public int _capacity { get; } = 10;
+        public List<Chicken> _chickens = new List<Chicken>();
         // can only hold 15 chickens max
 
         public void AddResource(Chicken animal, Farm farm)
